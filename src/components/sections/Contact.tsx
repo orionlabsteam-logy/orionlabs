@@ -30,6 +30,7 @@ export function Contact() {
     const email = formData.get("email") as string;
     const phone = formData.get("phone") as string;
     const college = formData.get("college") as string;
+    const branch = formData.get("branch") as string;
     const domain = formData.get("domain") as string;
     const message = formData.get("message") as string;
 
@@ -39,7 +40,7 @@ export function Contact() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ name, email, phone, college, domain, message }),
+        body: JSON.stringify({ name, email, phone, college, branch, domain, message }),
       });
 
       const result = await response.json();
@@ -102,35 +103,44 @@ export function Contact() {
                     <label htmlFor="phone" className="mb-1.5 block text-sm font-medium">
                       Phone
                     </label>
-                    <Input id="phone" name="phone" type="tel" placeholder="+91 98765 43210" />
+                    <Input id="phone" name="phone" type="tel" placeholder="+91 98765 43210" required />
                   </div>
                   <div>
                     <label htmlFor="college" className="mb-1.5 block text-sm font-medium">
                       College
                     </label>
-                    <Input id="college" name="college" placeholder="Your college name" />
+                    <Input id="college" name="college" placeholder="Your college name" required />
                   </div>
                 </div>
 
-                <div>
-                  <label htmlFor="domain" className="mb-1.5 block text-sm font-medium">
-                    Domain of Interest
-                  </label>
-                  <select
-                    id="domain"
-                    name="domain"
-                    className="flex h-11 w-full rounded-xl border border-border-subtle bg-surface px-4 py-2 text-sm text-foreground backdrop-blur-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
-                    defaultValue=""
-                  >
-                    <option value="" disabled>
-                      Select a domain
-                    </option>
-                    {domains.map((d) => (
-                      <option key={d.title} value={d.title} className="bg-background">
-                        {d.title}
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <div>
+                    <label htmlFor="branch" className="mb-1.5 block text-sm font-medium">
+                      Branch / Department
+                    </label>
+                    <Input id="branch" name="branch" placeholder="e.g. Computer Science, ECE" required />
+                  </div>
+                  <div>
+                    <label htmlFor="domain" className="mb-1.5 block text-sm font-medium">
+                      Domain of Interest
+                    </label>
+                    <select
+                      id="domain"
+                      name="domain"
+                      className="flex h-11 w-full rounded-xl border border-border-subtle bg-surface px-4 py-2 text-sm text-foreground backdrop-blur-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+                      defaultValue=""
+                      required
+                    >
+                      <option value="" disabled>
+                        Select a domain
                       </option>
-                    ))}
-                  </select>
+                      {domains.map((d) => (
+                        <option key={d.title} value={d.title} className="bg-background">
+                          {d.title}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
 
                 <div>
