@@ -1,6 +1,19 @@
 import { withSupabase } from "@supabase/server";
 
-export const POST = withSupabase({ auth: "none" }, async (req, ctx) => {
+export const POST = withSupabase(
+  {
+    auth: "none",
+    env: {
+      url: process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL || "",
+      publishableKeys: {
+        default: (process.env.SUPABASE_PUBLISHABLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "")
+      },
+      secretKeys: {
+        default: (process.env.SUPABASE_SECRET_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "")
+      }
+    }
+  },
+  async (req, ctx) => {
   try {
     const { name, email, phone, college, branch, domain, message } = await req.json();
 
