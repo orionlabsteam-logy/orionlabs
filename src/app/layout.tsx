@@ -11,42 +11,26 @@ const inter = Inter({
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "OrionLabs | Launch Your Tech Career with Industry Internships",
+  title: "OrionLabs | Launch Your Tech Career with Project-Based Internships",
   description:
-    "Gain real industry experience through project-based internships, expert mentorship, certification, and career support. Bridge the gap between academics and industry with OrionLabs.",
+    "Bridge the gap between academic learning and real-world experience. Join OrionLabs for project-based internships in AI, Machine Learning, Data Science, Web & App Development with expert mentorship and career certification.",
   keywords: [
-    "internships",
-    "technology",
-    "AI",
-    "machine learning",
-    "web development",
-    "career",
-    "mentorship",
+    "Internships",
+    "Tech Internships",
     "OrionLabs",
+    "Project-based learning",
+    "AI internships",
+    "Web development internships",
+    "Software engineering internships",
+    "Mentorship programs",
+    "Career certification",
   ],
-  openGraph: {
-    title: "OrionLabs | Launch Your Tech Career",
-    description:
-      "Project-based tech internships with expert mentorship and career support.",
-    type: "website",
-    locale: "en_US",
-    siteName: "OrionLabs",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "OrionLabs | Launch Your Tech Career",
-    description:
-      "Project-based tech internships with expert mentorship and career support.",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  authors: [{ name: "OrionLabs" }],
 };
 
 export default function RootLayout({
@@ -55,8 +39,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${poppins.variable} scroll-smooth bg-white`}>
-      <body className="min-h-screen bg-white text-foreground antialiased">
+    <html
+      lang="en"
+      className={`${inter.variable} ${poppins.variable} h-full antialiased`}
+    >
+      <body className="min-h-full bg-white text-slate-900 font-sans flex flex-col overflow-x-hidden scroll-smooth">
         {children}
       </body>
     </html>
