@@ -8,8 +8,6 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { supabase, isSupabaseConfigured } from "@/lib/supabaseClient";
-
 const socialLinks = [
   { icon: Share2, href: "#", label: "Twitter" },
   { icon: Network, href: "#", label: "LinkedIn" },
@@ -27,12 +25,6 @@ export function Contact() {
     setSubmitting(true);
     setErrorMsg(null);
 
-    if (!isSupabaseConfigured) {
-      setErrorMsg("Backend connection is not fully configured yet. Please set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY in your .env.local file.");
-      setSubmitting(false);
-      return;
-    }
-
     const formData = new FormData(e.currentTarget);
     const name = formData.get("name") as string;
     const email = formData.get("email") as string;
@@ -42,11 +34,19 @@ export function Contact() {
     const message = formData.get("message") as string;
 
     try {
-      const { error } = await supabase
-        .from("contact_submissions")
-        .insert([{ name, email, phone, college, domain, message }]);
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, phone, college, domain, message }),
+      });
 
-      if (error) throw error;
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to submit form.");
+      }
 
       setSubmitted(true);
       e.currentTarget.reset();
