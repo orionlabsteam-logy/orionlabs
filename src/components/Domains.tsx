@@ -2,7 +2,7 @@
 
 import { 
   Brain, BrainCircuit, Database, Code2, Smartphone, Cloud, 
-  Shield, Palette, Terminal, Calendar, User, ArrowRight 
+  Shield, Palette, Terminal, Calendar, ArrowRight 
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -189,12 +189,8 @@ export default function Domains() {
                   </div>
                 </div>
 
-                {/* Bottom Row: Mentor info & Apply CTA */}
-                <div className="pt-5 border-t border-slate-150 flex flex-col gap-3 mt-4">
-                  <div className="flex items-center gap-2 text-xs text-slate-500">
-                    <User className="w-4 h-4 text-secondary flex-shrink-0" />
-                    <span className="truncate">Mentor: <strong className="text-slate-800 font-semibold">{domain.mentor}</strong></span>
-                  </div>
+                {/* Bottom Row: Apply CTA */}
+                <div className="mt-6">
                   <a 
                     href="https://docs.google.com/forms/d/e/1FAIpQLSfnZ3OAdaZQqBxKtTZ0_cdDOkJhMIHnICGLvHxUsHP9BXfx-A/viewform?usp=dialog"
                     target="_blank"
