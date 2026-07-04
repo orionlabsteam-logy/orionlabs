@@ -1,24 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
-import { Github, Twitter, Linkedin, ArrowRight, Check } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { Github, Twitter, Linkedin } from "lucide-react";
 
 export default function Footer() {
-  const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      setSubscribed(true);
-      setTimeout(() => {
-        setEmail("");
-        setSubscribed(false);
-      }, 3000);
-    }
-  };
 
   return (
     <footer className="relative bg-slate-50 border-t border-slate-200 pt-20 pb-10 overflow-hidden">
@@ -31,7 +16,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
           
           {/* Col 1: Brand & Description */}
-          <div className="lg:col-span-4 flex flex-col space-y-5">
+          <div className="lg:col-span-6 flex flex-col space-y-5">
             <Link href="#home" className="flex items-center space-x-2 group w-fit">
               <span className="font-heading text-2xl font-bold tracking-tight text-slate-900">
                 Orion<span className="text-secondary">Labs</span>
@@ -118,50 +103,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 5: Newsletter */}
-          <div className="lg:col-span-2 flex flex-col space-y-4">
-            <h4 className="font-heading text-sm font-bold text-slate-900 uppercase tracking-wider">Newsletter</h4>
-            <p className="text-slate-500 text-xs sm:text-sm leading-relaxed">
-              Get weekly updates on applications, new domains, and events.
-            </p>
-            <form onSubmit={handleSubscribe} className="relative mt-2">
-              <input
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter email"
-                className="w-full bg-white border border-slate-250 rounded-full px-4 py-2.5 pr-10 text-xs text-slate-800 focus:outline-none focus:border-secondary transition-colors shadow-sm"
-              />
-              <button
-                type="submit"
-                className="absolute right-1 top-1 bottom-1 w-8 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center text-white hover:opacity-90 transition-opacity"
-                aria-label="Subscribe"
-              >
-                <AnimatePresence mode="wait">
-                  {subscribed ? (
-                    <motion.div
-                      key="check"
-                      initial={{ scale: 0.5, opacity: 0 }}
-                      animate={{ scale: 1, opacity: 1 }}
-                      exit={{ scale: 0.5, opacity: 0 }}
-                    >
-                      <Check className="w-3.5 h-3.5" />
-                    </motion.div>
-                  ) : (
-                    <motion.div
-                      key="arrow"
-                      initial={{ scale: 0.5, opacity: 0 }}
-                      animate={{ scale: 1, opacity: 1 }}
-                      exit={{ scale: 0.5, opacity: 0 }}
-                    >
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </button>
-            </form>
-          </div>
 
         </div>
 
