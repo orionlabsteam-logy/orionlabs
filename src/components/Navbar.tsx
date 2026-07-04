@@ -28,6 +28,7 @@ export default function Navbar() {
     { name: "Programs", href: "#domains" },
     { name: "Why Us", href: "#why" },
     { name: "FAQ", href: "#faq" },
+    { name: "Contact Us", href: "https://docs.google.com/forms/d/e/1FAIpQLScM0Q4jit9W4wXo9v0MBLvXbDA7UOSiTIS4AgxDBbciqdSdIA/viewform?usp=publish-editor", isExternal: true },
   ];
 
   return (
@@ -48,18 +49,30 @@ export default function Navbar() {
             <span className="h-2 w-2 rounded-full bg-secondary animate-pulse" />
           </Link>
 
-          {/* Desktop Nav Links */}
           <nav className="hidden lg:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="text-slate-600 hover:text-slate-900 text-sm font-medium transition-colors relative group py-2"
-              >
-                {link.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-full" />
-              </Link>
-            ))}
+            {navLinks.map((link) => 
+              link.isExternal ? (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-655 hover:text-slate-900 text-sm font-semibold transition-colors relative group py-2"
+                >
+                  {link.name}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-full" />
+                </a>
+              ) : (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="text-slate-600 hover:text-slate-900 text-sm font-medium transition-colors relative group py-2"
+                >
+                  {link.name}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-full" />
+                </Link>
+              )
+            )}
           </nav>
 
           {/* Right Action Buttons */}
@@ -99,16 +112,29 @@ export default function Navbar() {
             className="lg:hidden bg-white/95 backdrop-blur-lg border-b border-slate-200/50 overflow-hidden"
           >
             <div className="px-4 pt-2 pb-6 space-y-3">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="block text-slate-600 hover:text-slate-900 px-3 py-2 rounded-md text-base font-medium hover:bg-slate-50 transition-colors"
-                >
-                  {link.name}
-                </Link>
-              ))}
+              {navLinks.map((link) => 
+                link.isExternal ? (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setIsOpen(false)}
+                    className="block text-slate-600 hover:text-slate-900 px-3 py-2 rounded-md text-base font-semibold hover:bg-slate-50 transition-colors"
+                  >
+                    {link.name}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className="block text-slate-600 hover:text-slate-900 px-3 py-2 rounded-md text-base font-medium hover:bg-slate-50 transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                )
+              )}
               <div className="pt-4 border-t border-slate-100 flex flex-col space-y-3 px-3">
                 <a
                   href="https://docs.google.com/forms/d/e/1FAIpQLSfnZ3OAdaZQqBxKtTZ0_cdDOkJhMIHnICGLvHxUsHP9BXfx-A/viewform?usp=dialog"
