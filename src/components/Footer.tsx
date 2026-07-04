@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Github, Twitter, Linkedin } from "lucide-react";
+import { Linkedin } from "lucide-react";
 
 export default function Footer() {
 
@@ -28,24 +28,6 @@ export default function Footer() {
             </p>
             {/* Social Icons */}
             <div className="flex gap-4 pt-2">
-              <a 
-                href="https://github.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition-all shadow-sm"
-                aria-label="GitHub"
-              >
-                <Github className="w-4.5 h-4.5" />
-              </a>
-              <a 
-                href="https://twitter.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition-all shadow-sm"
-                aria-label="Twitter"
-              >
-                <Twitter className="w-4.5 h-4.5" />
-              </a>
               <a 
                 href="https://linkedin.com" 
                 target="_blank" 
