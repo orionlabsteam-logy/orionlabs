@@ -64,20 +64,6 @@ export default function Navbar() {
           {/* Right Action Buttons */}
           <div className="hidden lg:flex items-center space-x-4">
             <a
-              href="#"
-              className="text-slate-600 hover:text-slate-900 text-sm font-medium transition-colors px-4 py-2"
-            >
-              Login
-            </a>
-            <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSfnZ3OAdaZQqBxKtTZ0_cdDOkJhMIHnICGLvHxUsHP9BXfx-A/viewform?usp=dialog"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-slate-655 hover:text-slate-900 text-sm font-semibold transition-colors px-4 py-2 border border-slate-250 rounded-full hover:bg-slate-50"
-            >
-              Register
-            </a>
-            <a
               href="https://docs.google.com/forms/d/e/1FAIpQLSfnZ3OAdaZQqBxKtTZ0_cdDOkJhMIHnICGLvHxUsHP9BXfx-A/viewform?usp=dialog"
               target="_blank"
               rel="noopener noreferrer"
@@ -123,22 +109,6 @@ export default function Navbar() {
                 </Link>
               ))}
               <div className="pt-4 border-t border-slate-100 flex flex-col space-y-3 px-3">
-                <a
-                  href="#"
-                  onClick={() => setIsOpen(false)}
-                  className="text-slate-600 hover:text-slate-900 text-center py-2 text-base font-medium"
-                >
-                  Login
-                </a>
-                <a
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSfnZ3OAdaZQqBxKtTZ0_cdDOkJhMIHnICGLvHxUsHP9BXfx-A/viewform?usp=dialog"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setIsOpen(false)}
-                  className="text-slate-600 hover:text-slate-900 text-center py-2 text-base font-medium border border-slate-250 rounded-full hover:bg-slate-50"
-                >
-                  Register
-                </a>
                 <a
                   href="https://docs.google.com/forms/d/e/1FAIpQLSfnZ3OAdaZQqBxKtTZ0_cdDOkJhMIHnICGLvHxUsHP9BXfx-A/viewform?usp=dialog"
                   target="_blank"
