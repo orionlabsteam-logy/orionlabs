@@ -113,3 +113,22 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(99, 102, 241, 0.4);
 }
+
+/* Outlining all boxes, cards, inputs, and accordion containers on the website in dark purple */
+.glass-card, 
+[class*="glass-card"],
+.border,
+.border-slate-200,
+.border-slate-200\/50,
+.border-slate-200\/30,
+.border-slate-100,
+.border-slate-150 {
+  border-color: rgba(88, 28, 135, 0.22) !important;
+}
+
+.glass-card-hover:hover,
+.group:hover .glass-card,
+.group:hover [class*="glass-card"],
+.group:hover .rounded-2xl {
+  border-color: rgba(88, 28, 135, 0.55) !important;
+}
