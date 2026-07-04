@@ -122,19 +122,13 @@ export default function Certificate() {
                   </h4>
                 </div>
 
-                {/* India Emblem & MSME Logo */}
-                <div className="flex flex-col items-center">
-                  {/* Ashoka Emblem Vector representation */}
-                  <svg className="w-7 h-7 text-amber-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-                    <path d="M12 2C10.5 2 9 3 9 4.5c0 .8.5 1.5 1.2 1.8L10 9.5H8.5c-.8 0-1.2.4-1.2 1v2h9.4v-2c0-.6-.4-1-1.2-1H14l-.2-3.2C14.5 6 15 5.3 15 4.5 15 3 13.5 2 12 2z" fill="currentColor" fillOpacity="0.15" />
-                    <path d="M8.5 12.5v2c0 .5.4.8.8.8h5.4c.4 0 .8-.3.8-.8v-2" />
-                    <line x1="7.5" y1="16" x2="16.5" y2="16" />
-                    <circle cx="12" cy="14.2" r="1" />
-                  </svg>
-                  {/* MSME styled block */}
-                  <div className="text-[8px] font-black text-slate-900 uppercase mt-0.5 border-t border-slate-800 tracking-wide font-sans">
-                    MSME
-                  </div>
+                {/* MSME Logo */}
+                <div className="flex items-center">
+                  <img 
+                    src="/msme-logo.png" 
+                    alt="MSME Logo" 
+                    className="w-14 sm:w-20 h-auto object-contain pr-2"
+                  />
                 </div>
               </div>
 
