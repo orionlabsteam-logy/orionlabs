@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { 
-  ArrowRight, Sparkles, Rocket, Brain, BrainCircuit, 
+  ArrowRight, Sparkles, Brain, BrainCircuit, 
   Database, Code2, Smartphone, Cloud, Shield, Palette, Terminal 
 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -86,16 +86,6 @@ export default function Hero() {
       <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[450px] h-[350px] sm:h-[450px] rounded-full glow-bg-primary" />
       <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-[400px] sm:w-[500px] h-[400px] sm:h-[500px] rounded-full glow-bg-secondary" />
 
-      {/* SVG Gradient definitions for Rocket styling */}
-      <svg width="0" height="0" className="absolute">
-        <defs>
-          <linearGradient id="rocket-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#ef4444" />
-            <stop offset="50%" stopColor="#f97316" />
-            <stop offset="100%" stopColor="#eab308" />
-          </linearGradient>
-        </defs>
-      </svg>
 
       {/* Grid Pattern Background */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000003_1px,transparent_1px),linear-gradient(to_bottom,#00000003_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
@@ -155,22 +145,25 @@ export default function Hero() {
             transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-6 relative flex items-center justify-center h-[420px] sm:h-[480px] scale-[0.7] xs:scale-[0.8] sm:scale-[0.9] lg:scale-100 transition-transform duration-500"
           >
-            {/* Center Glowing Rocket Core */}
-            <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-slate-200/50 flex items-center justify-center bg-white shadow-xl z-20 animate-float">
-              <div className="absolute inset-2 rounded-full bg-gradient-to-tr from-orange-500/5 to-yellow-500/5 animate-pulse-slow" />
-              <Rocket className="w-10 sm:w-12 h-10 sm:h-12 filter drop-shadow-[0_0_8px_rgba(249,115,22,0.35)]" style={{ stroke: "url(#rocket-grad)", fill: "url(#rocket-grad)", fillOpacity: 0.1 }} />
+            {/* Center OrionLabs Logo Core */}
+            <div className="relative w-28 sm:w-32 h-14 sm:h-16 rounded-2xl border border-slate-200/50 flex items-center justify-center bg-white shadow-xl z-20 p-2.5">
+              <img 
+                src="/orionlabs-logo-center.png" 
+                alt="OrionLabs Logo" 
+                className="w-full h-full object-contain"
+              />
             </div>
 
             {mounted && (
               <>
                 {/* Inner Orbiting Domain texts (AI, ML, DS) */}
-                <Orbit radius={95} speed={25} items={innerOrbit} />
+                <Orbit radius={95} speed={30} items={innerOrbit} />
 
                 {/* Middle Orbiting Domain texts (Web, App, Cloud) */}
-                <Orbit radius={150} speed={35} reverse={true} items={middleOrbit} />
+                <Orbit radius={150} speed={30} items={middleOrbit} />
 
                 {/* Outer Orbiting Domain texts (Security, UI/UX, DevOps) */}
-                <Orbit radius={205} speed={45} items={outerOrbit} />
+                <Orbit radius={205} speed={30} items={outerOrbit} />
               </>
             )}
 
