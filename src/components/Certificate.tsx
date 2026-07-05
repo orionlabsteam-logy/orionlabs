@@ -116,10 +116,12 @@ export default function Certificate() {
               {/* Top Header Logos Row */}
               <div className="flex justify-between items-start z-10 px-4 pt-2">
                 {/* OrionLabs Logo */}
-                <div>
-                  <h4 className="font-heading text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight flex items-center">
-                    Orion<span className="text-secondary">Labs</span>
-                  </h4>
+                <div className="flex items-center">
+                  <img 
+                    src="/orionlabs-logo-center.png" 
+                    alt="OrionLabs Logo" 
+                    className="h-7 sm:h-9 w-auto object-contain pl-2"
+                  />
                 </div>
 
                 {/* MSME Logo */}
